@@ -83,7 +83,7 @@ function Cart() {
                                 <p className='cart-item-name'>
                                     {food[id].Name}
                                 </p>
-                                <p>Price:{food[id].Price}$</p>
+                                <p>Price:₹{food[id].Price}</p>
                                     <button class="Btn" onClick={() => handleRemoveItem(id)}>
                                             <img src={del} className='sign' width="15px" />
                                         <div class="text">Remove</div>
@@ -102,7 +102,7 @@ function Cart() {
                         </div>
 
                         <p className='cart-item-price'>
-                            SubTotal: {calculateSubtotal(id, quantity[id])}$
+                            SubTotal: ₹ {calculateSubtotal(id, quantity[id])}
                         </p>
                     </div>
                 ))}
@@ -112,7 +112,7 @@ function Cart() {
 
             <div className="total-price">
                 <h2>Total Price </h2>
-                <h2>{total}$</h2>
+                <h2>{total}₹</h2>
             </div>
             <div className='checkout-btn'>
                 <button className='cart-button'>Check Out</button>
