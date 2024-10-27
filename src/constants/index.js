@@ -287,28 +287,28 @@ export const people = [
 export const blogcard = [
     {
         id:1,
-        author : "Abdullah Assi",
+        author : "Prity Mudoi",
         date: "1-Sep-2023",
-        title: "What Do You Think About Cheese Pizza Recipes?",
-        desc: "Financial experts support or help you to to find out which way you can raise your funds",
+        title: "A Deep Dive into the Abyss of Appetite",
+        desc: "Every bite we take is a complex journey, a symphony of flavors, textures, and nutrients. But beneath the surface of this sensory experience lies a world of hidden truths, often masked by alluring marketing and misleading labels.",
         pic :  blog1,
         time: "5 min read"
     },
     {
         id:2,
-        author : "Abdullah Assi",
+        author : "Rijusmita Dey",
         date: "1-Sep-2023",
-        title: "What Do You Think About Cheese Pizza Recipes?",
-        desc: "Financial experts support or help you to to find out which way you can raise your funds",
+        title: "Unmasking the Hidden Truths Behind Every Bite",
+        desc: "Every bite we take is a complex journey, a symphony of flavors, textures, and nutrients. But beneath the surface of this sensory experience lies a world of hidden truths, often masked by alluring marketing and misleading labels.",
         pic :  blog2,
         time: "15 min read"
     },
     {
         id:3,
-        author : "Abdullah Assi",
+        author : "Manish Kumar",
         date: "1-Sep-2023",
-        title: "What Do You Think About Cheese Pizza Recipes?",
-        desc: "Financial experts support or help you to to find out which way you can raise your funds",
+        title: "The Arcane Secrets of the Seasoned Chef",
+        desc: "Have you ever wondered how a seasoned chef can transform simple ingredients into extraordinary dishes? It's not just about following a recipe; it's about understanding the nuances of flavor, texture, and presentation.",
         pic :  blog3,
         time: "5 min read"
     },
