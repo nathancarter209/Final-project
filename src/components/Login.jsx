@@ -79,6 +79,7 @@ export default function Login() {
                 </Link>
             </p>
             <p className="p line">Or</p>
+            
 
             <div className="flex-row">
                 <button className="btn google" onClick={handleSignInWithGoogle}>

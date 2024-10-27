@@ -40,7 +40,9 @@ function Delivery() {
         <div className='delivery-container'>
             <div className='delivery-content'>
                 <h1>A Moments Of Delivered On <span id='span'>Right Time</span>  & Place</h1>
-                <p>The restaurants in Hangzhou also catered to many northern Chinese who had fled south from Kaifeng during the Jurchen invasion of the 1120s, while it is also known that many restaurants were run by families.</p>
+                <p>Indulge in a culinary experience like no other.
+                                                        Discover the magic of Indian cuisine.
+                                                        A taste of India, served with love...</p>
                 <button className='button'>Order Now</button>
             </div>
             <div className='delivery-imgs' style={clouds} >

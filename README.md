@@ -17,7 +17,7 @@ And much more
 - **Framer Motion**
 - **CSS**
 
-![Foodie](./src/assets/Foodie.png)
+
 
 
 
