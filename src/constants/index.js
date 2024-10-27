@@ -61,6 +61,7 @@ export const catagory =[
     }
 ]
 export const food =[
+    //main course starts here?
     {
         id:0,
         Name: "Biriyani",
@@ -73,29 +74,29 @@ export const food =[
     },
     {
         id:1,
-        Name: "Pizza",
+        Name: "Paneer Butter Masala",
         pic : pizza1,
-        catagory : "Pizza",
-        Price : 60,
+        catagory : "mc",
+        Price : 260,
         discount : 10,
-        O_price: 80,
+        O_price: 300,
         clicked: false
     },
     {
         id:2,
-        Name: "Burger",
+        Name: "Chicken 65",
         pic : burger2,
-        catagory : "Burger",
-        Price : 50,
+        catagory : "mc",
+        Price : 300,
         discount : 20,
         O_price: 80,
         clicked: false
     },
     {
         id:3,
-        Name: "Coca Cola",
+        Name: "Chik-Pea Tikka Masala",
         pic : drink2,
-        catagory : "Drink",
+        catagory : "mc",
         Price : 25,
         discount : 10,
         O_price: 80,
@@ -103,9 +104,9 @@ export const food =[
     },
     {
         id:4,
-        Name: "Burger",
+        Name: "Saag Paneer",
         pic : burger5,
-        catagory : "Burger",
+        catagory : "mc",
         Price : 50,
         discount : 10,
         O_price: 80,
@@ -113,19 +114,21 @@ export const food =[
     },
     {
         id:5,
-        Name: "Sandwich",
+        Name: "Fish Curry",
         pic : sandwich2,
-        catagory : "Sandwich",
+        catagory : "mc",
         Price : 60,
         discount : 10,
         O_price: 80,
         clicked: false
     },
+    //Main Course Item End Here
+    //Starters Starts Here
     {
         id:6,
-        Name: "Burger",
-        pic : burger6,
-        catagory : "Burger",
+        Name: "Masala Papad",
+        pic : burger7,
+        catagory : "st",
         Price : 30,
         discount : 10,
         O_price: 80,
@@ -133,19 +136,20 @@ export const food =[
     },
     {
         id:7,
-        Name: "Fanta",
+        Name: "Aloo Chaat",
         pic : drink1,
-        catagory : "Drink",
+        catagory : "st",
         Price : 60,
         discount : 10,
         O_price: 80,
         clicked: false
     },
+    
     {
         id:8,
-        Name: "Burger",
-        pic : burger7,
-        catagory : "Burger",
+        Name: "Punjabi Samosa",
+        pic : drink4,
+        catagory : "st",
         Price : 60,
         discount : 10,
         O_price: 80,
@@ -153,19 +157,21 @@ export const food =[
     },
     {
         id:9,
-        Name: "Pepsi",
-        pic : drink4,
-        catagory : "Drink",
+        Name: "Papdi Chaat",
+        pic : drink3,
+        catagory : "st",
         Price : 60,
         discount : 10,
         O_price: 80,
         clicked: false
     },
+    //starters ends here
+
     {
         id:10,
-        Name: "Sprite",
-        pic : drink3,
-        catagory : "Drink",
+        Name: "Jeera Rice",
+        pic : burger4,
+        catagory : "si",
         Price : 60,
         discount : 10,
         O_price: 80,
@@ -173,9 +179,9 @@ export const food =[
     },
     {
         id:11,
-        Name: "Burger",
-        pic : burger4,
-        catagory : "Burger",
+        Name: "Naan",
+        pic : pizza2,
+        catagory : "si",
         Price : 60,
         discount : 10,
         O_price: 80,
@@ -183,9 +189,9 @@ export const food =[
     },
     {
         id:12,
-        Name: "Pizza",
-        pic : pizza2,
-        catagory : "Pizza",
+        Name: "Roti",
+        pic : pizza3,
+        catagory : "si",
         Price : 60,
         discount : 10,
         O_price: 80,
@@ -193,21 +199,21 @@ export const food =[
     },
     {
         id:13,
-        Name: "Pizza",
-        pic : pizza3,
-        catagory : "Pizza",
-        Price : 60,
-        discount : 10,
+        Name: "Burger",
+        pic : burger3,
+        catagory : "si",
+        Price : 20,
+        discount :5,
         O_price: 80,
         clicked: false
     },
     {
         id:14,
-        Name: "Burger",
-        pic : burger3,
-        catagory : "Burger",
-        Price : 20,
-        discount :5,
+        Name: "sandwich",
+        pic : sandwich1,
+        catagory : "si",
+        Price : 60,
+        discount : 10,
         O_price: 80,
         clicked: false
     },
@@ -215,7 +221,7 @@ export const food =[
         id:15,
         Name: "sandwich",
         pic : sandwich1,
-        catagory : "Sandwich",
+        catagory : "si",
         Price : 60,
         discount : 10,
         O_price: 80,
