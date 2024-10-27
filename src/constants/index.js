@@ -26,49 +26,49 @@ export const navLinks = [
 export const catagory =[
     {
         id: 1,
-        title: "Soft Drinks",
-        icon: picon2,
-        description: "Its is all about Drinks",
+        title: "Starter",
+        //icon: picon2,
+        description: "Our delectable appetizers",
         img: promo2
     },
     {
         id: 2,
-        title: "Sandwich",
-        icon: picon5,
-        description: "Its is all about Meat",
+        title: "Main Course",
+        //icon: picon5,
+        description: "Our Exquisite Main Courses",
         img: promo3
     },
     {
         id: 3,
-        title: "Burger",
-        icon: picon4,
-        description: "Its is all about Burgers",
+        title: "Sides",
+        //icon: picon4,
+        description: "Our Exquisite Main Courses",
         img: promo4
     },
     {
         id: 4,
-        title: "Pizza",
-        icon: picon1,
-        description: "Its is all about Pizza",
+        title: "Desserts",
+        //icon: picon1,
+        description: "Indulge Your Sweet Tooth",
         img: promo5,
     },
     {
         id: 4,
-        title: "Pizza",
-        icon: picon5,
-        description: "Its is all about Pizza",
+        title: "Drinks",
+        //icon: picon2,
+        description: "Quench Your Thirst",
         img: promo1
     }
 ]
 export const food =[
     {
         id:0,
-        Name: "Burger",
+        Name: "Biriyani",
         pic : burger1,
-        catagory : "Burger",
-        Price : 60,
+        catagory : "mc",
+        Price : 360,
         discount : 10,
-        O_price: 80,
+        O_price: 400,
         clicked: false
     },
     {
