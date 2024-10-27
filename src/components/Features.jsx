@@ -13,7 +13,7 @@ function Features() {
                 </div>
 
                 <div className='feature-info'>
-                    <h1 className='feature-heading'>Caferio, Burgers, and Best Pizzas <span id='span'>in Town!</span></h1>
+                    <h1 className='feature-heading'>Biriyani, Paneer, <span id='span'>in Town!</span></h1>
                     <p className='feature-info-desc'>The restaurants in Hangzhou also catered to many northern Chinese who had fled south from Kaifeng during the Jurchen invasion of the 1120s, while it is also known that many restaurants were run by families.</p>
                     <div className='features'>
                         <p> <img src={verified} width="15px"/> Delicious & Healthy Foods</p>
