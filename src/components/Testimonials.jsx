@@ -55,7 +55,7 @@ return (
         <div className="testimonial-container">
             <div className="testmonial-details">
                 <h1>We Got The <span id="span">Trust</span> Along with Taste .</h1>
-                <p>At our restaurant, we take immense pride in our Diverse and loyal clientele. Our valued customers are at the heart of everything we do, and their trust is what fuels our passion for serving exceptional food. With over 1000+ satisfied clients and a legacy spanning more than 15 years, we've become a beloved culinary destination in the community.</p>
+                <p>At our restaurant, we take immense pride in our diverse and loyal clientele. Our valued customers are at the heart of everything we do, and their trust is what fuels our passion for serving exceptional food. With over 1000+ satisfied clients and a legacy spanning more than 15 years, we've become a beloved culinary destination in the community.</p>
                 <h2><span id="span">100+</span> Satisfied Clients</h2>
                 <h2><span id="span">1000+</span> Foods Delivered</h2>
                 <h2><span id="span">15+</span> Years of Legacy</h2>    

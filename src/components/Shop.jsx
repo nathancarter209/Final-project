@@ -11,7 +11,7 @@ export const CartState = atom({
     key: "CartState",
     default : {},
 })
-//menu page
+
 export const cartStateWithRemove = selector({
     key: 'cartStateWithRemove',
     get: ({ get }) => get(CartState),

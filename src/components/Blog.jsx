@@ -8,7 +8,7 @@ function Blog() {
     useEffect(() => {
         window.scrollTo(0, 0);
 
-        
+        // Hide the Transition component after 3 seconds
         const timeout = setTimeout(() => {
         setShowTransition(false);
         }, 3000);

@@ -17,11 +17,8 @@ const RouteTracker = () => {
   ];
   const matches = matchRoutes(someRoutes, currentLocation);
   
-  // Perform tracking actions based on matched routes
-  console.log("Matched routes:", matches);
+ console.log("Matched routes:", matches);
 
-
-  
   return null;
 }
 
