@@ -111,7 +111,7 @@ function Cart() {
             <div className='divider'></div>
 
             <div className="total-price">
-                <h2>Total Price </h2>
+                <h2>Total Amount </h2>
                 <h2>{total}₹</h2>
             </div>
             <div className='checkout-btn'>

@@ -42,7 +42,7 @@ function Delivery() {
                 <h1>A Moments Of Delivered On <span id='span'>Right Time</span>  & Place</h1>
                 <p>Indulge in a culinary experience like no other.
                                                         Discover the magic of Indian cuisine.
-                                                        A taste of India, served with love...</p>
+                                                        A taste of India, served with love..</p>
                 <button className='button'>Order Now</button>
             </div>
             <div className='delivery-imgs' style={clouds} >

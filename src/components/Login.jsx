@@ -75,7 +75,7 @@ export default function Login() {
             <button className="button-submit" type="submit" >Log In</button>
             <p className="p">Doesn't have an account? 
                 <Link to="/signup">
-                    <span className="span">SignUp</span>
+                    <span className="span">Sign Up</span>
                 </Link>
             </p>
             <p className="p line">Or</p>

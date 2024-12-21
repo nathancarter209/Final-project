@@ -24,7 +24,7 @@ function Footer() {
                 <div className='footer-list'>
                     <h2>Contact Info</h2>
                     <p>+91 1234567890</p>
-                    <p>Info@kahanikhaneki.com</p>
+                    <p>kahanikhaneki.vercel.app/</p>
                     <p>Guwahati</p>
                 </div>
 

@@ -11,7 +11,7 @@ function Layout() {
             <Outlet />
             <Footer />
             <div className='credit'>
-                Copyright Ⓒ 2023 Kahani Khane Ki. All Rights Reserved.
+                Copyright Ⓒ 2024 Kahani Khane Ki. All Rights Reserved.
                 <div>
               
                 </div>

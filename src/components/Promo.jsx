@@ -11,7 +11,7 @@ function Promo() {
                     {catagory.map((promo,index)=>(
                         <li key={promo.id} className='item'>
                             <div className="promo-card">
-                                <img className="promo-icon" src={promo.icon}/>
+                                
                                 <div className="promo-title">{promo.title}</div>
                                 <div className="promo-text">{promo.description}</div>
                                 <img src={promo.img} className='promo-pic' />

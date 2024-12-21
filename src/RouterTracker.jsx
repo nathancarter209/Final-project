@@ -20,7 +20,7 @@ const RouteTracker = () => {
   // Perform tracking actions based on matched routes
   console.log("Matched routes:", matches);
 
-  // You can perform other tracking-related actions here
+
   
   return null;
 }

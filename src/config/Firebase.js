@@ -6,7 +6,7 @@ import  { addDoc, Firestore, getFirestore } from 'firebase/firestore'
 import { getStorage } from 'firebase/storage'
 import { doc, setDoc, getDoc } from 'firebase/firestore';
 
-
+//my config
 const firebaseConfig = {
     apiKey: "AIzaSyDCDgpkzfwrZAbxYNcrmLbU-NAl2w4iZoU",
     authDomain: "foodie-b4377.firebaseapp.com",

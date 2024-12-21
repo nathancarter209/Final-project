@@ -23,7 +23,7 @@ function Features() {
                         <p><img src={verified}width="15px"/> Music & Other Facilities</p>
                         <p><img src={verified}width="15px"/> Fastest Food Home Delivery</p>
                     </div>
-                    <button className='button feature-button'>Order Now</button>
+                    <button className='button feature-button'>Order Now!!</button>
                 </div>
             </div>
     )

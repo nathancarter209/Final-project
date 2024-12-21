@@ -13,7 +13,7 @@ import Blog1 from "./components/Blog1";
 import RouteTracker from "./RouterTracker";
 
 
-
+//routing page
 function App() {
   return (
     <>
