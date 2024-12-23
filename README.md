@@ -15,8 +15,3 @@ And much more
 - **Firebase Authentication**
 - **Framer Motion**
 - **CSS**
-
-![KahaniKhaneKi](./src/assets/Capture.JPG)
-
-
-
