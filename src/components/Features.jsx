@@ -1,7 +1,7 @@
 import React from 'react'
 import { about_banner, shapered, verified } from '../assets'
 import './Styles/Features.css'
-
+import { Link } from 'react-router-dom'
 function Features() {
 
 
@@ -23,7 +23,7 @@ function Features() {
                         <p><img src={verified}width="15px"/> Music & Other Facilities</p>
                         <p><img src={verified}width="15px"/> Fastest Food Home Delivery</p>
                     </div>
-                    <button className='button feature-button'>Order Now</button>
+                    <Link to="/shop"><button className='button feature-button'>Order Now</button></Link>
                 </div>
             </div>
     )

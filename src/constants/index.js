@@ -1,4 +1,4 @@
-import { avatar1, avatar2, avatar3, blog1, blog2, blog3, burger1, burger2, burger3, burger4, burger5, burger6, burger7, drink1, drink2, drink3, drink4, picon1, picon2, picon4, picon5, pizza1, pizza2, pizza3, promo1, promo2, promo3, promo4, promo5, sandwich1, sandwich2 } from "../assets";
+import { avatar1, avatar2, avatar3, blog1, blog2, blog3, picon1, picon2, picon4, picon5, promo1, promo2, promo3, promo4, promo5, sandwich1, st1, st2, st3, st4, mc1, mc2, mc3, mc4, mc5,mc6, si1, si2, si3, si4, si5, dessert1, dessert2, dessert3, dessert4, drinks1, drinks2, drinks3, drinks4 } from "../assets";
 
 export const navLinks = [
     {
@@ -8,18 +8,19 @@ export const navLinks = [
     },
     {
         id: "features",
-        title: "Shop",
+        title: "Menu",
         link : './shop'
+    },
+   
+    {
+        id: "clients",
+        title: "Blogs",
+        link : './blogs'
     },
     {
         id: "product",
         title: "Account",
         link : './signup'
-    },
-    {
-        id: "clients",
-        title: "Blogs",
-        link : './blogs'
     },
 ];
 
@@ -65,7 +66,7 @@ export const food =[
     {
         id:0,
         Name: "Biriyani",
-        pic : burger1,
+        pic : mc1,
         catagory : "mc",
         Price : 360,
         discount : 10,
@@ -75,7 +76,7 @@ export const food =[
     {
         id:1,
         Name: "Paneer Butter Masala",
-        pic : pizza1,
+        pic : mc2,
         catagory : "mc",
         Price : 260,
         discount : 10,
@@ -85,7 +86,7 @@ export const food =[
     {
         id:2,
         Name: "Chicken 65",
-        pic : burger2,
+        pic : mc3,
         catagory : "mc",
         Price : 300,
         discount : 20,
@@ -95,7 +96,7 @@ export const food =[
     {
         id:3,
         Name: "Chik-Pea Tikka Masala",
-        pic : drink2,
+        pic : mc4,
         catagory : "mc",
         Price : 198,
         discount : 10,
@@ -105,7 +106,7 @@ export const food =[
     {
         id:4,
         Name: "Saag Paneer",
-        pic : burger5,
+        pic : mc5,
         catagory : "mc",
         Price : 315,
         discount : 10,
@@ -115,7 +116,7 @@ export const food =[
     {
         id:5,
         Name: "Fish Curry",
-        pic : sandwich2,
+        pic : mc6,
         catagory : "mc",
         Price : 405,
         discount : 10,
@@ -127,7 +128,7 @@ export const food =[
     {
         id:6,
         Name: "Masala Papad",
-        pic : burger7,
+        pic : st1,
         catagory : "st",
         Price : 144,
         discount : 10,
@@ -137,7 +138,7 @@ export const food =[
     {
         id:7,
         Name: "Aloo Chaat",
-        pic : drink1,
+        pic : st2,
         catagory : "st",
         Price : 117,
         discount : 10,
@@ -148,7 +149,7 @@ export const food =[
     {
         id:8,
         Name: "Punjabi Samosa",
-        pic : drink4,
+        pic : st3,
         catagory : "st",
         Price : 60,
         discount : 10,
@@ -158,7 +159,7 @@ export const food =[
     {
         id:9,
         Name: "Papdi Chaat",
-        pic : drink3,
+        pic : st4,
         catagory : "st",
         Price : 71,
         discount : 10,
@@ -166,11 +167,11 @@ export const food =[
         clicked: false
     },
     //starters ends here
-
+//sides starts here
     {
         id:10,
         Name: "Jeera Rice",
-        pic : burger4,
+        pic : si1,
         catagory : "si",
         Price : 162,
         discount : 10,
@@ -180,7 +181,7 @@ export const food =[
     {
         id:11,
         Name: "Naan",
-        pic : pizza2,
+        pic : si2,
         catagory : "si",
         Price : 27,
         discount : 10,
@@ -190,7 +191,7 @@ export const food =[
     {
         id:12,
         Name: "Roti",
-        pic : pizza3,
+        pic : si3,
         catagory : "si",
         Price : 18,
         discount : 10,
@@ -199,8 +200,8 @@ export const food =[
     },
     {
         id:13,
-        Name: "Burger",
-        pic : burger3,
+        Name: "Keema Naan",
+        pic : si4,
         catagory : "si",
         Price : 20,
         discount :5,
@@ -209,15 +210,95 @@ export const food =[
     },
     {
         id:14,
-        Name: "sandwich",
-        pic : sandwich1,
+        Name: "Baby Corn",
+        pic : si5,
         catagory : "si",
         Price : 60,
         discount : 10,
         O_price: 80,
         clicked: false
     },
-    
+    //sides ends here
+    //desserts stars here
+    {
+        id:15,
+        Name: "Gulab Jamun",
+        pic : dessert1,
+        catagory : "de",
+        Price : 60,
+        discount : 10,
+        O_price: 80,
+        clicked: false
+    },
+    {
+        id:16,
+        Name: "kulfi",
+        pic : dessert2,
+        catagory : "de",
+        Price : 60,
+        discount : 10,
+        O_price: 80,
+        clicked: false
+    },
+    {
+        id:17,
+        Name: "kheer",
+        pic : dessert3,
+        catagory : "de",
+        Price : 60,
+        discount : 10,
+        O_price: 80,
+        clicked: false
+    },
+    {
+        id:18,
+        Name: "Rosogulla",
+        pic : dessert4,
+        catagory : "de",
+        Price : 60,
+        discount : 10,
+        O_price: 80,
+        clicked: false
+    },
+    //desserts end here
+    //drinks starts here
+    {
+        id:19,
+        Name: "Mocktail",
+        pic : drinks1,
+        catagory : "dr",
+        Price : 60,
+        discount : 10,
+        O_price: 80,
+        clicked: false
+    },{
+        id:20,
+        Name: "Beer",
+        pic : drinks2,
+        catagory : "dr",
+        Price : 60,
+        discount : 10,
+        O_price: 80,
+        clicked: false
+    },{
+        id:21,
+        Name: "Lassi",
+        pic : drinks3,
+        catagory : "dr",
+        Price : 60,
+        discount : 10,
+        O_price: 80,
+        clicked: false
+    },{
+        id:22,
+        Name: "Soda",
+        pic : drinks4,
+        catagory : "dr",
+        Price : 60,
+        discount : 10,
+        O_price: 80,
+        clicked: false
+    },
     
 ]
 
