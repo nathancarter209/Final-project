@@ -1,165 +1,87 @@
 /* OrderConfirmation.css */
-.order-confirmation-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 40px;
-    border-radius: 12px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-    background-color: #f9f9f9; /* Light gray background */
-    max-width: 900px;
-    margin: 60px auto;
-    font-family: 'Roboto', sans-serif; /* Modern font */
-    line-height: 1.6; /* Improved line height for readability */
-}
-
-.order-confirmation-container.error {
-    color: #b00020; /* Deeper red for errors */
-    text-align: center;
+.invoice-container {
+    width: 80%;
+    max-width: 800px;
+    margin: 20px auto;
     padding: 20px;
-    background-color: #ffebee; /* Light red background for error message */
-    border-radius: 8px;
-    margin-top: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    font-family: sans-serif;
+    background-color: #fff; /* Added background color */
 }
 
-.order-confirmation-container.loading {
-    font-style: italic;
-    color: #78909c; /* Blue-gray for loading */
+.invoice-header {
     text-align: center;
-}
-
-.order-confirmation-container.not-found {
-    color: #ff9800;
-    text-align: center;
-}
-
-.thank-you {
-    font-size: 2em;
-    font-weight: 700;
-    color: #1b5e20; /* Darker green */
-    margin-bottom: 25px;
-    text-align: center;
-}
-
-.order-id {
-    color: #424242; /* Darker gray */
-    margin-bottom: 40px;
-    text-align: center;
-    font-size: 1.1em;
-}
-
-.order-details {
-    width: 100%;
-    border-top: 2px solid #e0e0e0; /* Thicker, lighter border */
-    padding-top: 30px;
-    margin-bottom: 40px;
-}
-
-.order-details h2, .address-details h2 {
-    font-size: 1.6em;
-    font-weight: 600;
-    color: #212121;
     margin-bottom: 20px;
 }
 
-.order-items {
-    list-style: none;
-    padding: 0;
+.invoice-number,
+.invoice-date {
+    font-size: 0.9em;
+    color: #777;
 }
 
-.order-item {
-    padding: 25px 0;
-    border-bottom: 1px solid #e0e0e0;
-    display: flex;
-    align-items: flex-start;
+.invoice-billing-info,
+.invoice-items,
+.invoice-summary {
+    margin-bottom: 20px;
 }
 
-.product-image {
-    width: 120px;
-    height: 120px;
-    margin-right: 30px;
-    object-fit: cover;
-    border-radius: 12px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle image shadow */
-}
-
-.product-details {
-    flex-grow: 1;
-}
-
-.product-name {
-    font-size: 1.3em;
-    font-weight: 500;
-    color: #212121;
-    margin-bottom: 10px;
-}
-
-.product-quantity,
-.product-price {
-    color: #616161;
-    margin-bottom: 8px;
-}
-
-.address-details {
+.order-items-table {
     width: 100%;
-    border-top: 2px solid #e0e0e0;
-    padding-top: 30px;
-    margin-bottom: 40px;
+    border-collapse: collapse;
+    margin-top: 10px;
 }
 
-.order-total {
-    font-size: 1.6em;
-    font-weight: 700;
-    color: #1a237e;
-    text-align: right;
-    margin-bottom: 0;
-    padding-top: 20px; /* Add some top padding */
-    border-top: 2px solid #e0e0e0; /* Add a top border */
+.order-items-table th,
+.order-items-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
 }
+
+.order-items-table th {
+    background-color: #f0f0f0;
+    font-weight: bold;
+}
+
+.invoice-summary {
+    text-align: right;
+}
+
+.invoice-total {
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-top: 10px;
+}
+
 .continue-shopping-btn {
-    background-color: #4caf50; /* Green */
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
     border: none;
-    color: white;
-    padding: 12px 24px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin-top: 30px;
-    border-radius: 8px;
+    border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease; /* Smooth transition on hover */
+    transition: background-color 0.3s;
 }
 
 .continue-shopping-btn:hover {
-    background-color: #45a049; /* Darker green on hover */
-}
-.continue-shopping-btn:focus{
-    outline: none;
-    box-shadow: 0 0 0 2px #4caf5075;
+    background-color: #0056b3;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .order-confirmation-container {
-        padding: 20px;
-        margin: 30px auto;
-    }
+/* Error and Loading Styles */
+.invoice-container.error,
+.invoice-container.loading,
+.invoice-container.not-found {
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #ddd;
+    margin-top: 20px;
+}
 
-    .order-item {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .product-image {
-        margin-right: 0;
-        margin-bottom: 15px;
-        width: 100px;
-        height: 100px;
-    }
-    .order-total{
-        text-align: center;
-        padding-top: 20px;
-        border-top: 2px solid #e0e0e0;
-    }
-} 
+.invoice-container.error {
+    border-color: #dc3545; /* Red border for errors */
+    color: #dc3545;
+}

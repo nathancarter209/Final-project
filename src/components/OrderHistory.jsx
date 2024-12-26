@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useAuth } from '../config/Context';
 import { collection, query, where, getDocs, getFirestore } from 'firebase/firestore';
 import { app } from '../config/Firebase';
-import './Styles/OrderHistory.css'; 
+import './Styles/OrderHistory.css';
 
 const OrderHistory = () => {
     const { user } = useAuth();
@@ -14,14 +14,15 @@ const OrderHistory = () => {
     useEffect(() => {
         const fetchOrders = async () => {
             if (user) {
+                console.log("Fetching orders for user:", user.email); // Debugging
                 setLoading(true);
                 setError(null);
                 try {
                     const ordersCollection = collection(db, 'orders');
-                    const q = query(ordersCollection, where('address.email', '==', user.email)); // Query by user email
-
+                    const q = query(ordersCollection, where('address.email', '==', user.email));
                     const querySnapshot = await getDocs(q);
                     const ordersData = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+                    console.log("Fetched orders:", ordersData); // Debugging
                     setOrders(ordersData);
                 } catch (err) {
                     console.error("Error fetching orders:", err);
@@ -48,30 +49,43 @@ const OrderHistory = () => {
     }
 
     if (orders.length === 0) {
-        return <div className='no-orders'>No orders found.</div>;
+        return (
+            <div className="no-orders-container">
+                <h1>No Orders Found</h1>
+                <p>You haven't placed any orders yet. Why not browse our shop and get started?</p>
+                <button onClick={() => window.location.href = '/shop'} className="shop-now-button">
+                    Shop Now
+                </button>
+            </div>
+        );
     }
 
     return (
         <div className="order-history-container">
             <h1>Order History</h1>
-            <ul className="order-list">
-                {orders.map(order => (
-                    <li key={order.id} className="order-item">
+            {orders.map(order => (
+                <div key={order.id} className="order-invoice">
+                    <div className="order-header">
                         <h2>Order ID: {order.id}</h2>
-                        <p>Total: ₹{order.total}</p>
-                        <p>Ordered on: {order.timestamp?.toDate().toLocaleString()}</p> {/* Format timestamp */}
+                        <p>Date: {order.timestamp?.toDate().toLocaleString() || "Unknown"}</p>
+                    </div>
+                    <div className="order-items">
                         <h3>Items:</h3>
                         <ul>
-                            {order.items.map((item) => (
-                                <li key={item.foodId}>
-                                    {item.name} x {item.quantity} - ₹{item.price * item.quantity}
+                            {order.items.map((item, index) => (
+                                <li key={index} className="order-item">
+                                    <span>{item.name || "Unknown Item"}</span>
+                                    <span>Quantity: {item.quantity || 0}</span>
+                                    <span>Price: ₹{(item.price * item.quantity) || 0}</span>
                                 </li>
                             ))}
                         </ul>
-                        <hr />
-                    </li>
-                ))}
-            </ul>
+                    </div>
+                    <div className="order-summary">
+                        <h3>Total Amount: ₹{order.total || "Unknown"}</h3>
+                    </div>
+                </div>
+            ))}
         </div>
     );
 };

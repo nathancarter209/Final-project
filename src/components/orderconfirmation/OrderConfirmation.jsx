@@ -10,7 +10,7 @@ const OrderConfirmation = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const db = getFirestore(app);
-    const navigate = useNavigate(); 
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchOrder = async () => {
@@ -37,12 +37,12 @@ const OrderConfirmation = () => {
     }, [orderId, db]);
 
     const handleContinueShopping = () => {
-        navigate('/'); 
+        navigate('/');
     };
 
     if (error) {
         return (
-            <div className="order-confirmation-container error">
+            <div className="invoice-container error">
                 <p>Error: {error}</p>
                 <button onClick={() => window.location.reload()}>Try Again</button>
             </div>
@@ -50,47 +50,60 @@ const OrderConfirmation = () => {
     }
 
     if (loading) {
-        return <div className="order-confirmation-container loading">Loading order details...</div>;
+        return <div className="invoice-container loading">Loading order details...</div>;
     }
 
     if (!order) {
-        return <div className="order-confirmation-container not-found">Order not found.</div>;
+        return <div className="invoice-container not-found">Order not found.</div>;
     }
 
     return (
-        <div className="order-confirmation-container">
-            <h1>Order Confirmation</h1>
-            <p className="thank-you">Thank you for your order!</p>
-            <p className="order-id">Order ID: {orderId}</p>
+        <div className="invoice-container">
+            <div className="invoice-header">
+                <h1>Invoice</h1>
+                <p className="invoice-number">Order ID: {orderId}</p>
+                <p className="invoice-date">Date: {new Date().toLocaleDateString()}</p>
+            </div>
 
-            <div className="order-details">
-                <h2>Order Details</h2>
+            <div className="invoice-billing-info">
+                <h2>Billing Information</h2>
+                <p>Name: {order.address?.name || "N/A"}</p> {/* Optional chaining with default value */}
+                <p>Address: {order.address?.addressLine || "N/A"}</p>
+                <p>Phone: {order.address?.phone || "N/A"}</p>
+                <p>Email: {order.address?.email || "N/A"}</p>
+            </div>
+
+            <div className="invoice-items">
+                <h2>Order Items</h2>
                 {order.items && order.items.length > 0 ? (
-                    <ul className="order-items">
-                        {order.items.map((product) => (
-                            <li key={product.foodId} className="order-item">
-                                
-                                <div className="product-info">
-                                    <p className="product-name">{product.name}</p>
-                                    <div className="price-quantity">
-                                        <p className="product-quantity">Quantity: {product.quantity}</p>
-                                        <p className="product-price">Price: ₹{product.price}</p>
-                                    </div>
-                                </div>
-                            </li>
-                        ))}
-                    </ul>
+                    <table className="order-items-table">
+                        <thead>
+                            <tr>
+                                <th>Product Name</th>
+                                <th>Quantity</th>
+                                <th>Price</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {order.items.map((product) => (
+                                <tr key={product.foodId}>
+                                    <td>{product.name || "N/A"}</td>
+                                    <td>{typeof product.quantity === 'number' ? product.quantity : "N/A"}</td>
+                                    <td>₹{(typeof product.price === 'number' ? product.price : 0).toFixed(2)}</td>
+                                    <td>₹{(typeof product.price === 'number' && typeof product.quantity === 'number' ? product.quantity * product.price : 0).toFixed(2)}</td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
                 ) : (
                     <p>No items found in this order.</p>
                 )}
-                <div className="address-details">
-                    <h2>Shipping Address</h2>
-                    <p>Name: {order.address?.name}</p>
-                    <p>Address: {order.address?.addressLine}</p>
-                    <p>Phone: {order.address?.phone}</p>
-                    <p>Email: {order.address?.email}</p>
-                </div>
-                <p className="order-total">Total: ₹{order.total}</p>
+            </div>
+
+            <div className="invoice-summary">
+                <p className="invoice-subtotal">Subtotal: ₹{(typeof order.subtotal === 'number' ? order.subtotal : 0).toFixed(2)}</p>
+                <p className="invoice-total">Total: ₹{(typeof order.total === 'number' ? order.total : 0).toFixed(2)}</p>
             </div>
 
             <button className="continue-shopping-btn" onClick={handleContinueShopping}>

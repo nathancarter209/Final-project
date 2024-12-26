@@ -95,7 +95,7 @@ const Navbar = () => {
                                 </button>
                                 <li className={`dropdown-menu ${isDropdownOpen ? 'show' : ''}`}>
                                     <li><Link to="/Profile" className="dropdown-item">Account Details</Link></li>
-                                    <li><Link to="/OrderHistory" className="dropdown-item">Previous Orders</Link></li>
+                                    <li><Link to="/order-history" className="dropdown-item">Previous Orders</Link></li>
                                     <li><button className="dropdown-item sign-out-btn" onClick={handleSignOut}>Sign Out</button></li>
                                 </li>
                             </li>
