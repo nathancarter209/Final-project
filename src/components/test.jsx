@@ -1,34 +1,37 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useAuth } from "../config/Context";
 import * as yup from "yup";
 import '../index.css';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { MdAlternateEmail } from 'react-icons/md';
 import { BiSolidLockAlt } from 'react-icons/bi';
 import { GoAlertFill, GoVerified } from 'react-icons/go';
 import { AiOutlineEye, AiOutlineEyeInvisible, AiOutlineUser } from 'react-icons/ai';
 import Transition from '../components/Transition';
-import { useEffect } from 'react';
 
 const schema = yup.object({
-    firstName: yup.string().required("First Name is required"), // Added messages
+    firstName: yup.string().required("First Name is required"),
     lastName: yup.string().required("Last Name is required"),
-    email: yup.string().email("Invalid email").required("Email is required"), // Added email validation
-    password: yup.string().min(6, "Password must be at least 6 characters").required("Password is required"), // Added min length
+    email: yup.string().email("Invalid email").required("Email is required"),
+    password: yup.string().min(6, "Password must be at least 6 characters").required("Password is required"),
+    phoneNumber: yup.string().required("Phone Number is required"),
+    address: yup.string().required("Address is required"),
 }).required();
 
-export default function Test() {
-    const { register, handleSubmit, formState: { errors } } = useForm({
+const Signup = () => {
+    const { register, handleSubmit, formState: { errors }, reset } = useForm({
         resolver: yupResolver(schema)
     });
 
     const [visible, setVisible] = useState(false);
-    const { handleSignInWithGoogle, handleSignUp, popup } = useAuth(); // Corrected function name
+    const { signUp, signInWithGoogle } = useAuth();
     const [showTransition, setShowTransition] = useState(true);
-    const [signUpError, setSignUpError] = useState(null); // State for sign-up errors
+    const [signUpError, setSignUpError] = useState(null);
+    const navigate = useNavigate();
+    const [popup, setPopup] = useState(false);
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -39,12 +42,18 @@ export default function Test() {
     }, []);
 
     const onSubmit = async (data) => {
-        setSignUpError(null); // Clear previous errors
+        setSignUpError(null);
+        console.log("data from form", data); // Crucial for debugging
         try {
-            await handleSignUp(data); // Call the sign-up function from context
+            const displayName = `${data.firstName} ${data.lastName}`;
+            await signUp(data.email, data.password, false, displayName, data.phoneNumber, data.address);
+            reset();
+            setPopup(true);
+            setTimeout(() => setPopup(false), 3000);
+            navigate('/login');
         } catch (error) {
             console.error("Sign up error:", error);
-            setSignUpError(error.message); // Set the error message in state
+            setSignUpError(error.message);
         }
     };
 
@@ -55,7 +64,7 @@ export default function Test() {
     return (
         <div className="Form-container">
             {showTransition && <Transition />}
-            <form className="form" onSubmit={handleSubmit(onSubmit)}> {/* Corrected onSubmit handler */}
+            <form className="form" onSubmit={handleSubmit(onSubmit)}>
                 <div className="flex-column">
                     <label>First Name</label>
                 </div>
@@ -63,7 +72,7 @@ export default function Test() {
                     <span><AiOutlineUser /></span>
                     <input {...register("firstName")} placeholder="Enter Your First Name" className="input" />
                 </div>
-                {errors.firstName && <p className="alert"><GoAlertFill /> {errors.firstName.message} <GoAlertFill /></p>} {/* Display error message */}
+                {errors.firstName && <p className="alert"><GoAlertFill /> {errors.firstName.message} <GoAlertFill /></p>}
 
                 <div className="flex-column">
                     <label>Last Name</label>
@@ -93,17 +102,35 @@ export default function Test() {
                 </div>
                 {errors.password && <p className="alert"><GoAlertFill /> {errors.password.message} <GoAlertFill /></p>}
 
-                {signUpError && <p className="alert" style={{color: 'red'}}><GoAlertFill /> {signUpError} <GoAlertFill /></p>} {/* Display sign-up error */}
+                <div className="flex-column">
+                    <label>Phone Number</label>
+                </div>
+                <div className="inputForm">
+                    <span>{/* Phone Icon */}</span>
+                    <input type="tel" {...register("phoneNumber")} placeholder="Enter Your Phone Number" className="input" />
+                </div>
+                {errors.phoneNumber && <p className="alert"><GoAlertFill /> {errors.phoneNumber.message} <GoAlertFill /></p>}
+
+                <div className="flex-column">
+                    <label>Address</label>
+                </div>
+                <div className="inputForm">
+                    <span>{/* Address Icon */}</span>
+                    <textarea {...register("address")} placeholder="Enter Your Address" className="input" />
+                </div>
+                {errors.address && <p className="alert"><GoAlertFill /> {errors.address.message} <GoAlertFill /></p>}
+
+                {signUpError && <p className="alert" style={{ color: 'red' }}><GoAlertFill /> {signUpError} <GoAlertFill /></p>}
 
                 <button className="button-submit" type="submit">Sign Up</button>
 
                 <p className="p">Already have an account?
                     <Link to='/login'><span className="span">Login</span></Link>
                 </p>
-                <p className="p line">Or</p>
 
+                <br />
                 <div className="flex-row">
-                    <button className="btn google" onClick={handleSignInWithGoogle}>
+                    <button className="btn google" onClick={signInWithGoogle}>
                         <FcGoogle /> Sign In with Google
                     </button>
                 </div>
@@ -115,4 +142,6 @@ export default function Test() {
             )}
         </div>
     );
-}
+};
+
+export default Signup;

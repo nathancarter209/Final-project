@@ -1,38 +1,63 @@
-import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { CartState } from '../../../Final-project/src/components/Shop';
 import { food } from '../../../Final-project/src/constants';
 import './Styles/Checkout.css';
 import { useNavigate } from 'react-router-dom';
-import { collection, addDoc, serverTimestamp } from "firebase/firestore";
-
-
-const firebaseConfig = {
-    apiKey: "AIzaSyDpzOtIdIKUsysQJE5eEynBJe20Sv2qFjU",
-    authDomain: "kahanikhaneki-c7937.firebaseapp.com",
-    projectId: "kahanikhaneki-c7937",
-    storageBucket: "kahanikhaneki-c7937.firebasestorage.app",
-    messagingSenderId: "511318078095",
-    appId: "1:511318078095:web:24783d318784f7752f76fa",
-    measurementId: "G-6050EKCH8S"
-};
-
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+import { collection, addDoc, serverTimestamp, getFirestore, doc, getDoc } from "firebase/firestore";
+import { app } from '../config/Firebase';
+import { useAuth } from '../config/Context'; // Import useAuth
 
 function Checkout() {
     const cart = useRecoilValue(CartState);
     const setCartState = useSetRecoilState(CartState);
     const navigate = useNavigate();
+    const db = getFirestore(app);
+    const { user } = useAuth(); // Access user from context
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
 
-    const [address, setAddress] = useState({
+    const [formData, setFormData] = useState({
         name: '',
+        email: '',
         phone: '',
-        addressLine1: '',
-        
+        addressLine: '',
     });
+
+    useEffect(() => {
+        const fetchUserData = async () => {
+            if (user) { // Check if user is logged in using useAuth
+                try {
+                    const userDocRef = doc(db, 'users', user.uid);
+                    const userDoc = await getDoc(userDocRef);
+
+                    if (userDoc.exists()) {
+                        const userData = userDoc.data();
+                        setFormData({
+                            name: userData.displayName || user.displayName || '',
+                            email: user.email,
+                            phone: userData.phoneNumber || '',
+                            addressLine: userData.address || '',
+                        });
+                    } else {
+                        setFormData({
+                            name: user.displayName || '',
+                            email: user.email,
+                            phone: '',
+                            addressLine: '',
+                        })
+                    }
+                } catch (err) {
+                    console.error("Error fetching user data:", err);
+                }
+            }
+        };
+        fetchUserData();
+    }, [user, db]);
+
+    const handleChange = (e) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
 
     const calculateSubtotal = (id, quantity) => {
         return food[id].Price * (quantity || 1);
@@ -52,11 +77,12 @@ function Checkout() {
             return;
         }
 
-        if (!validateAddress(address)) {
+        if (!formData.name || !formData.email || !formData.phone || !formData.addressLine) {
             alert("Please fill in all required address fields.");
             return;
         }
-
+        setLoading(true);
+        setError(null);
         try {
             const ordersCollection = collection(db, "orders");
             const orderItems = Object.entries(cart).map(([id, quantity]) => ({
@@ -70,64 +96,41 @@ function Checkout() {
                 items: orderItems,
                 total: calculateTotalPrice(),
                 timestamp: serverTimestamp(),
-                address: address,
+                address: formData, // Use formData directly here
             };
 
             const docRef = await addDoc(ordersCollection, orderData);
-            console.log("Document written with ID: ", docRef.id);
+            const orderId = docRef.id;
 
             setCartState({});
-            alert("Order placed successfully!");
-            navigate('/');
+            navigate(`/order-confirmation/${orderId}`);
         } catch (error) {
             console.error("Error adding document: ", error);
-            alert("An error occurred: " + error.message);
+            setError('An error occurred: ' + error.message)
+        } finally{
+            setLoading(false)
         }
     };
 
-    const validateAddress = (addressData) => {
-        return (
-            addressData.name &&
-            addressData.phone &&
-            addressData.addressLine1 &&
-            addressData.city &&
-            addressData.state &&
-            addressData.pincode
-        );
-    };
-
     if (Object.keys(cart).length === 0) {
-        return <div><h1>No Items in the cart</h1></div>;
+        return <div className="empty-cart"><h1>No Items in the cart</h1></div>;
     }
 
     return (
         <div className="checkout-container">
             <h1>Checkout</h1>
-
             <div className="checkout-sections">
                 <div className="checkout-section">
                     <h2>Shipping Address</h2>
                     <form>
                         <label htmlFor="name">Name:</label>
-                        <input type="text" id="name" value={address.name} onChange={(e) => setAddress({ ...address, name: e.target.value })} required />
+                        <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} required /> {/* Correct binding */}
 
                         <label htmlFor="phone">Phone Number:</label>
-                        <input type="tel" id="phone" value={address.phone} onChange={(e) => setAddress({ ...address, phone: e.target.value })} required />
+                        <input type="tel" id="phone" name="phone" value={formData.phone} onChange={handleChange} required /> {/* Correct binding */}
 
-                        <label htmlFor="addressLine1">Address Line 1:</label>
-                        <input type="text" id="addressLine1" value={address.addressLine1} onChange={(e) => setAddress({ ...address, addressLine1: e.target.value })} required />
-
-                        /*<label htmlFor="addressLine2">Address Line 2:</label>
-                        <input type="text" id="addressLine2" value={address.addressLine2} onChange={(e) => setAddress({ ...address, addressLine2: e.target.value })} />
-
-                        <label htmlFor="city">City:</label>
-                        <input type="text" id="city" value={address.city} onChange={(e) => setAddress({ ...address, city: e.target.value })} required />
-
-                        <label htmlFor="state">State:</label>
-                        <input type="text" id="state" value={address.state} onChange={(e) => setAddress({ ...address, state: e.target.value })} required />
-
-                        <label htmlFor="pincode">Pincode:</label>
-                        <input type="text" id="pincode" value={address.pincode} onChange={(e) => setAddress({ ...address, pincode: e.target.value })} required />
+                        <label htmlFor="addressLine">Address:</label>
+                        <textarea id="addressLine" name="addressLine" value={formData.addressLine} onChange={handleChange} required /> {/* Correct binding */}
                     </form>
                 </div>
 
@@ -150,15 +153,14 @@ function Checkout() {
                         <h2>Total: ₹{calculateTotalPrice()}</h2>
                     </div>
                 </div>
-                {/* Payment Section - Placeholder */}
+
                 <div className="checkout-section">
                     <h2>Payment</h2>
-                    <p>Payment integration will add later</p>
-                    {/* Add payment gateway integration here */}
+                    <p>Payment integration will be added later</p>
                 </div>
-
             </div>
-            <button onClick={handlePlaceOrder}>Place Order</button>
+            <button className="place-order-btn" onClick={handlePlaceOrder} disabled={loading}>Place Order</button>
+            {error && <p style={{ color: 'red' }}>{error}</p>}
         </div>
     );
 }

@@ -23,3 +23,4 @@ const RouteTracker = () => {
 }
 
 export default RouteTracker;
+

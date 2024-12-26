@@ -1,7 +1,7 @@
 import { useAuth } from './config/Context';
 import { Navigate, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
-
+//for seamless routing of admin
 const ProtectedRoute = ({ children }) => {
     const { user, loading, userDoc } = useAuth(); // Get userDoc if you are using it
     const location = useLocation();

@@ -1,12 +1,14 @@
+// Layout.jsx
 import React from 'react';
-import Navbar from '../components/Navbar'; // Adjust path if needed
-import Footer from '../components/Footer'; // Adjust path if needed
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
+import './Layout.css'; // Import the CSS file
 
-function Layout({ children }) {
+const Layout = ({ children }) => {
     return (
-        <div>
+        <div className="layout-container">
             <Navbar />
-            <main>
+            <main className="main-content">
                 {children}
             </main>
             <Footer />
@@ -15,6 +17,6 @@ function Layout({ children }) {
             </div>
         </div>
     );
-}
+};
 
 export default Layout;
