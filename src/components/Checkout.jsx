@@ -1,19 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React,{useState, useEffect}from'react';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
-import { CartState } from '../../../Final-project/src/components/Shop';
-import { food } from '../../../Final-project/src/constants';
+import { CartState } from '../components/Shop';
+import { food } from '../constants';
 import './Styles/Checkout.css';
 import { useNavigate } from 'react-router-dom';
 import { collection, addDoc, serverTimestamp, getFirestore, doc, getDoc } from "firebase/firestore";
 import { app } from '../config/Firebase';
-import { useAuth } from '../config/Context'; // Import useAuth
-
+import { useAuth } from '../config/Context'; 
 function Checkout() {
     const cart = useRecoilValue(CartState);
     const setCartState = useSetRecoilState(CartState);
     const navigate = useNavigate();
     const db = getFirestore(app);
-    const { user } = useAuth(); // Access user from context
+    const { user } = useAuth(); 
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
 
