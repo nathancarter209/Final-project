@@ -14,6 +14,7 @@ const RouteTracker = () => {
     { path: "/login", component: Login },
     { path: "/blogs", component: Blog },
     { path: "/blogs/1", component: Blog1 },
+    
   ];
   const matches = matchRoutes(someRoutes, currentLocation);
   

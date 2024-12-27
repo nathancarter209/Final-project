@@ -14,7 +14,7 @@ import Blog1 from "./components/Blog1";
 import RouteTracker from "./RouterTracker";
 import ProtectedRoute from './ProtectedRoute';
 import OrderList from './components/Admin/OrderList';
-
+//pages routing done here
 function App() {
     return (
         <RecoilRoot>
