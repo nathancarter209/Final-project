@@ -59,7 +59,15 @@
   .site-nav li {
     margin-right: 1rem;
   }
-  
+  .account-link{
+    color: var(--text-color);
+    text-decoration: none;
+    font-family: var(--font-primary);
+    font-weight: 750;
+    padding: 0.5em 1em;
+    border-radius: 4px;
+
+  }
   .site-nav a {
     color: var(--text-color);
     text-decoration: none;

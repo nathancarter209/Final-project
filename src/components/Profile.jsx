@@ -88,18 +88,30 @@ const Profile = () => {
                     <input type="text" name="displayName" placeholder="Display Name" value={profileData.displayName} onChange={handleChange} />
                     <input type="tel" name="phoneNumber" placeholder="Phone Number" value={profileData.phoneNumber} onChange={handleChange} />
                     <textarea name="address" placeholder="Address" value={profileData.address} onChange={handleChange}></textarea>
-                    <button onClick={handleSave} disabled={loading}>
+                    <button className="button" onClick={handleSave} disabled={loading}>
                         {loading ? "Saving..." : "Save"}
                     </button>
                     <button onClick={() => setIsEditing(false)}>Cancel</button>
                 </div>
             ) : (
                 <div className="profile-details">
-                    <p><strong>Name:</strong> {profileData.displayName || "N/A"}</p>
-                    <p><strong>Email:</strong> {user.email}</p>
-                    {profileData.phoneNumber && <p><strong>Phone Number:</strong> {profileData.phoneNumber}</p>}
-                    {profileData.address && <p><strong>Address:</strong> {profileData.address}</p>}
-                    <button onClick={() => setIsEditing(true)}>Edit Profile</button>
+                    <h2 className="profile-detail-title">Name:</h2> 
+                    <p className="profile-detail">{profileData.displayName || "N/A"}</p>
+                    <h2 className="profile-detail-title">Email:</h2> 
+                    <p className="profile-detail">{user.email}</p>
+                    {profileData.phoneNumber && (
+                        <>
+                            <h2 className="profile-detail-title">Phone Number:</h2> 
+                            <p className="profile-detail">{profileData.phoneNumber}</p>
+                        </>
+                    )}
+                    {profileData.address && (
+                        <>
+                            <h2 className="profile-detail-title">Address:</h2> 
+                            <p className="profile-detail">{profileData.address}</p>
+                        </>
+                    )}
+                    <button className="button" onClick={() => setIsEditing(true)}>Edit Profile</button>
                 </div>
             )}
         </div>

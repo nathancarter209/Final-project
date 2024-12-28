@@ -25,7 +25,7 @@ function Checkout() {
 
     useEffect(() => {
         const fetchUserData = async () => {
-            if (user) { // Check if user is logged in using useAuth
+            if (user) { 
                 try {
                     const userDocRef = doc(db, 'users', user.uid);
                     const userDoc = await getDoc(userDocRef);

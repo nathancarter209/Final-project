@@ -15,7 +15,7 @@ function Promo() {
                                  
                                 <div className="promo-title">{promo.title}</div>
                                 <div className="promo-text">{promo.description}</div>
-                                <img src={promo.img} className='promo-pic' alt={promo.title} /> {/* Added alt text */}
+                                <img src={promo.img} className='promo-pic' alt={promo.title} /> 
                             </div>
                         </li>
                     ))}
