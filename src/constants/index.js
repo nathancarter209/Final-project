@@ -1,4 +1,4 @@
-import { avatar1, avatar2, avatar3, blog1, blog2, blog3, picon1, picon2, picon4, picon5, promo1, promo2, promo3, promo4, promo5, sandwich1, st1, st2, st3, st4, mc1, mc2, mc3, mc4, mc5,mc6, si1, si2, si3, si4, si5, dessert1, dessert2, dessert3, dessert4, drinks1, drinks2, drinks3, drinks4 } from "../assets";
+import {Ava1, Ava2, Ava3, Ava4, Ava5, Ava6, Ava7, blog1, blog2, blog3, picon1, picon2, picon4, picon5, promo1, promo2, promo3, promo4, promo5, sandwich1, st1, st2, st3, st4, mc1, mc2, mc3, mc4, mc5,mc6, si1, si2, si3, si4, si5, dessert1, dessert2, dessert3, dessert4, drinks1, drinks2, drinks3, drinks4 } from "../assets";
 
 export const navLinks = [
     {
@@ -11,7 +11,7 @@ export const navLinks = [
         title: "Menu",
         link : './shop'
     },
-   
+
     {
         id: "clients",
         title: "Blogs",
@@ -167,7 +167,7 @@ export const food =[
         clicked: false
     },
     //starters ends here
-//sides starts here
+    //sides starts here
     {
         id:10,
         Name: "Jeera Rice",
@@ -305,57 +305,53 @@ export const food =[
 export const people = [
     {
         id: 1,
-        name: 'Susan Smith',
+        name: 'Priya Sharma',
         job: 'web developer',
-        image:
-            'https://res.cloudinary.com/diqqf3eq2/image/upload/v1586883334/person-1_rfzshl.jpg',
+        image:Ava1,
         text:
             "I'm baby meggings twee health goth +1. Bicycle rights tumeric chartreuse before they sold out chambray pop-up. Shaman humblebrag pickled coloring book salvia hoodie, cold-pressed four dollar toast everyday carry",
     },
     {
         id: 2,
-        name: 'Anna Johnson',
+        name: 'Aryan Kapoor',
         job: 'web designer',
-        image:
-            'https://res.cloudinary.com/diqqf3eq2/image/upload/v1586883409/person-2_np9x5l.jpg',
+        image: Ava2,
         text:
             'Helvetica artisan kinfolk thundercats lumbersexual blue bottle. Disrupt glossier gastropub deep v vice franzen hell of brooklyn twee enamel pin fashion axe.photo booth jean shorts artisan narwhal.',
     },
     {
         id: 3,
-        name: 'Peter jones',
+        name: 'Disha Mehta',
         job: 'intern',
-        image:
-            'https://res.cloudinary.com/diqqf3eq2/image/upload/v1586883417/person-3_ipa0mj.jpg',
+        image:Ava3,
         text:
             'Sriracha literally flexitarian . Bicycle rights tumeric chartreuse before they sold out chambray pop-up. Shaman humblebrag pickled coloring book salvia hoodie,lette post-ironic jianbing swag.humblebrag pickled coloring book salvia hoodie',
     },
     {
         id: 4,
-        name: 'Bill Aderson',
-        image:
-            'https://res.cloudinary.com/diqqf3eq2/image/upload/v1586883423/person-4_t9nxjt.jpg',
+        name: 'Sonia Verma',
+        image: Ava4,
         text:
             'Edison bulb put a bird on it humblebrag, marfa pok pok heirloom fashion axe cray stumptown venmo actually seitan. VHS farm-to-table schlitz, edison bulb pop-up 3 wolf moon tote bag street art shabby chic. ',
     },
     {
         id: 5,
-        name: 'Annia Jhonie',
-        image:avatar3,
+        name: 'Nikhil Singh',
+        image:Ava5,
         text:
             '. Bicycle rights tumeric chartreuse before they sold out chambray pop-up. Shaman humblebrag pickled coloring book salvia hoodie, schlitz, edison bulb pop-up 3 wolf moon tote bag street art shabby chic. ',
     },
     {
         id: 6,
-        name: 'Jamie Clark',
-        image:avatar2,
+        name: 'Kabir Rao',
+        image:Ava6,
         text:
             'Edison bulb put a bird on it humblebrag, marfa pok pok heirloom fashion axe cray stumptown venmo actually seitan. VHS farm-to-table schlitz, edison bulb pop-up 3 wolf moon tote bag street art shabby chic. ',
     },
     {
         id: 7,
-        name: 'Tim David',
-        image:avatar1,
+        name: 'Esha Banerjee',
+        image:Ava7,
         text:
             'Edison bulb put a bird on it humblebrag, marfa pok pok heirloom fashion axe cray stumptown venmo actually seitan. VHS farm-to-table schlitz, edison bulb pop-up 3 wolf moon tote bag street art shabby chic. ',
     },
@@ -364,29 +360,29 @@ export const people = [
 export const blogcard = [
     {
         id:1,
-        author : "Abdullah Assi",
-        date: "1-Sep-2023",
-        title: "What Do You Think About Cheese Pizza Recipes?",
-        desc: "Financial experts support or help you to to find out which way you can raise your funds",
+        author : "Prity Mudoi",
+        date: "30 Aug 2024",
+        title: "Kitchen Chaos & Culinary Creations",
+        desc: "Welcome to my kitchen, where the air is thick with the aroma of burnt toast and the floor is perpetually littered with rogue flour. Here, you'll find recipes, both successful and disastrous, alongside stories of my culinary mishaps and triumphs. So buckle up and join me on this chaotic and delicious journey!",
         pic :  blog1,
         time: "5 min read"
     },
     {
         id:2,
-        author : "Abdullah Assi",
-        date: "1-Sep-2023",
-        title: "What Do You Think About Cheese Pizza Recipes?",
-        desc: "Financial experts support or help you to to find out which way you can raise your funds",
+        author : "Manish Kumar",
+        date: "18 Nov 2024",
+        title: "The Hungry Baker",
+        desc: "This blog is for anyone with a sweet tooth. Expect to find a variety of recipes, from classic cookies to adventurous desserts. I'll share my baking experiments, tips, and maybe even a few kitchen disasters along the way. Get ready to bake!",
         pic :  blog2,
         time: "15 min read"
     },
     {
         id:3,
-        author : "Abdullah Assi",
-        date: "1-Sep-2023",
-        title: "What Do You Think About Cheese Pizza Recipes?",
-        desc: "Financial experts support or help you to to find out which way you can raise your funds",
+        author : "Rijusmita Dey",
+        date: "1 Jan 2025",
+        title: "Flavorful Bites Journal",
+        desc: "Golden curries simmer with spices that ignite the soul, while buttery naan waits to scoop up every last drop. Sweet, tangy, and fiery flavors dance on the plate, celebrating every meal like a festival. From earthy lentils to zesty pickles, each bite tells a tale of passion and tradition. Let the feast begin!",
         pic :  blog3,
-        time: "5 min read"
+        time: "13 min read"
     },
 ]

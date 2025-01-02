@@ -1,14 +1,18 @@
 import about_banner from './about-banner.png';
-import avatar1 from './avatar-1.jpg'
-import avatar2 from './avatar-2.jpg'
-import avatar3 from './avatar-3.jpg'
+import Ava1 from './Ava1.jpg'
+import Ava2 from './Ava2.jpg'
+import Ava3 from './Ava3.jpg'
+import Ava4 from './Ava4.jpg'
+import Ava5 from './Ava5.jpg'
+import Ava6 from './Ava6.jpg'
+import Ava7 from './Ava7.jpg'
 import banner1 from './banner-1.jpg'
 import banner2 from './banner-2.jpg'
 import banner3 from './banner-3.jpg'
 import banner4 from './banner-4.jpg'
-import blog1 from './blog-1.jpg'
-import blog2 from './blog-2.jpg'
-import blog3 from './blog-3.jpg'
+import blog1 from './Blog1.jpeg'
+import blog2 from './Blog2.jpeg'
+import blog3 from './Blog3.jpeg'
 import foodmenu1 from './food-menu-1.png'
 import foodmenu2 from './food-menu-2.png'
 import foodmenu3 from './food-menu-3.png'
@@ -72,7 +76,7 @@ export {
     deliveryboy,
     herobanner,herobannerbg,herobg,herobgshape,
     about_banner,
-    avatar1, avatar2,avatar3,
+    Ava1, Ava2, Ava3, Ava4, Ava5, Ava6, Ava7,
     banner1,banner2,banner3,banner4, ctabanner,
     blog1 , blog2, blog3, 
     foodmenu1,foodmenu2,foodmenu3,foodmenu4,foodmenu5,foodmenu6,

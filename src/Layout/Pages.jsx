@@ -27,8 +27,8 @@ function Pages() {
         };
     }, []);
 
-  return (
-      <div>
+    return (
+        <div>
             {showTransition && <Transition />}
         <Hero />
         <Promo />
@@ -38,7 +38,7 @@ function Pages() {
         <BlogCards />
         <Testimonials />
         </div>
-  );
+    );
 }
 
 export default Pages;
